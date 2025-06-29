@@ -1,0 +1,37 @@
+HASHMAP
+
+HashMap<String, Integer> map = new HashMap<>();     // initialize
+map.put("apple", 10);                               // put a value
+int value = map.get("apple");                       // get a value
+boolean hasKey = map.containsKey("apple");          // check if key exists
+map.remove("apple");
+
+HASSET
+
+
+HashSet<String> set = new HashSet<>();    // initialize
+set.add("apple");                         // add a value
+boolean exists = set.contains("apple");   // check if value exists
+set.remove("apple");                      // remove a value
+
+
+
+SOLN
+
+class Solution {
+    public int[] twoSum(int[] nums, int t) {
+        int arr[] =new int[2];
+       HashMap<Integer,Integer> h= new HashMap<>();
+       for(int i =0;i<nums.length;i++)
+       {
+        if(h.containsKey(t-nums[i]))
+        {
+            arr[0]=h.get(t-nums[i]);
+            arr[1] = i;
+            return arr;
+        }
+        h.put(nums[i],i);
+       } 
+       return arr;
+    }
+}
