@@ -1,0 +1,24 @@
+public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : s.toCharArray()) {
+            // If opening bracket, push expected closing one
+            if (c == '(') stack.push(')');
+            else if (c == '{') stack.push('}');
+            else if (c == '[') stack.push(']');
+            // If closing bracket
+            else {
+                // Stack empty OR mismatch
+                if (stack.isEmpty() || stack.pop() != c) {
+                    return false;
+                }
+            }
+        }
+
+        // If anything left unmatched
+        return stack.isEmpty();
+    }
+
+
+
+add closing braces for evry open9ing brace in stacks and chcek if the closing is the same as exact.
